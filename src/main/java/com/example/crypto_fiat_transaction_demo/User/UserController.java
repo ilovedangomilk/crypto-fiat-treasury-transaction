@@ -17,4 +17,10 @@ public class UserController {
     public User createUser(@RequestBody User user){
         return userService.createUser(user.getName());
     }
+
+    @PostMapping("/change")
+    public User changeCurrencyToUserAccount(@RequestBody ChangeCurrency changeCurrency){
+        return userService.changeCurrencyToUserAccount(changeCurrency.getId(), changeCurrency.getCurrency(), changeCurrency.getAmount(), changeCurrency.getType());
+    }
 }
+
