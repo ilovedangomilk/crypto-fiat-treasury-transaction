@@ -2,14 +2,18 @@ package com.example.crypto_fiat_transaction_demo.Transactions;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name="crypto-treasury-transaction", schema="crypto-fiat-exchange-demo")
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
+@Getter
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
