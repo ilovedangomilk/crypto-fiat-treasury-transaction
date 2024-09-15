@@ -5,9 +5,14 @@ import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 @Service
+// Where the business logic is
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    // Constructor injection
+    public UserService(UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
 
     public User createUser(String name){
         User user = new User();

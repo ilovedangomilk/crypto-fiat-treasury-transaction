@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/transaction")
 public class TransactionController {
-    @Autowired
-    private TransactionService transactionService;
+
+    // The whole Constructor injection of TransactionService
+    private final TransactionService transactionService; // Here is the field declaration
+    public TransactionController(TransactionService transactionService) { // The actual constructor injection
+        this.transactionService = transactionService;
+    }
+
 
     @PostMapping("/convert")
     // @RequestBody for json request, @RequestParam for request within the URL

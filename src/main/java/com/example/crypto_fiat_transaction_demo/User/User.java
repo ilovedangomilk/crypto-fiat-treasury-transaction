@@ -16,6 +16,7 @@ import lombok.Setter;
 public class User {
     @Id // Marks the id as the primary key of the entity (corresponding to the id column in the table)
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto assign id
+    // The auto-increment mechanism is managed by the database itself, and will remember the last input
     private Long id;
     private String name;
     private double USD;
