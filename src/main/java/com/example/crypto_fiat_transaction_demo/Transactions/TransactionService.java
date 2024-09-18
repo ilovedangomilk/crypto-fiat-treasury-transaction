@@ -54,7 +54,7 @@ public class TransactionService {
                     user.setUSD(finalBitcoinAmount);
                 }
                 break;
-            case "etherueum":
+            case "ethereum":
                 double finalEthereumAmount = user.getEthereum()-amount;
                 if (finalEthereumAmount < 0) {
                     throw new IllegalArgumentException("Insufficient Ethereum!");
@@ -70,6 +70,8 @@ public class TransactionService {
                     user.setBNB(finalBnbAmount);
                 }
                 break;
+            default:
+                throw new IllegalArgumentException("Unknown source currency!");
         }
         // Target switch statements
         switch (target.toLowerCase()){
@@ -85,6 +87,8 @@ public class TransactionService {
             case "bnb":
                 user.setBNB(user.getBNB()+convertedAmount);
                 break;
+            default:
+                throw new IllegalArgumentException("Unknown source currency!");
         }
         // At the end must save the user's current balances into the userRepository
         userRepository.save(user);
